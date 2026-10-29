@@ -68,7 +68,7 @@ showStartError("executor", "loadstring indisponivel no ambiente")
 return
 end
 local pieces = {
-[===================================[print("[Unicorn Hub] Script iniciado; carregando servicos...")
+[====================[print("[Unicorn Hub] Script iniciado; carregando servicos...")
 local Players = game:GetService("Players")
 local TweenService = game:GetService("TweenService")
 local UserInputService = game:GetService("UserInputService")
@@ -704,8 +704,7 @@ carryLanding.Token += 1 if carryLanding.OwnsAnchor and carryLanding.LockedRoot
 and carryLanding.LockedRoot.Parent and carryLanding.LockedRoot.Anchored then
 carryLanding.LockedRoot.Anchored = false end carryLanding.LockedRoot = nil
 carryLanding.OwnsAnchor = false carryLanding.Recovering = false
-]===================================],
-[===================================[carryLanding.Character = nil local listeners = AntiRagdollToolConnections.ActiveListeners
+carryLanding.Character = nil local listeners = AntiRagdollToolConnections.ActiveListeners
 for _, connection in ipairs(listeners) do
 connection:Disconnect() end table.clear(listeners) AntiRagdollRecovering = false end
 local function clearAntiRagdollToolConnections()
@@ -1383,8 +1382,7 @@ local function tryRecoverThreat()
 if not threatIsAllowed() or not hasThreat() then return end
 if AntiRagdollToolConnections.AntiToolHold.OwnsAnchor then return end
 local now = os.clock() if now - threat.LastAttempt < 0.10 then return end
-]===================================],
-[===================================[threat.LastAttempt = now if AntiRagdollGroundGuard.nativeRagdollActive(character)
+threat.LastAttempt = now if AntiRagdollGroundGuard.nativeRagdollActive(character)
 or (State.IsRoVibes and nativeJointGuard.ReleasedAt > 0
 and now - nativeJointGuard.ReleasedAt < 1.05) then
 recoverNativeGearRagdoll() return end
@@ -2084,8 +2082,7 @@ elseif episode.Locked and not newRigCuff then
 return false end local currentHumanoid = character:FindFirstChildOfClass("Humanoid")
 if AntiRagdollEnabled and not isDeath and not isConfirmedCuff
 and not isHumanoidThreat and currentHumanoid
-]===================================],
-[===================================[and currentHumanoid.Health > 0
+and currentHumanoid.Health > 0
 and currentHumanoid:GetState() ~= Enum.HumanoidStateType.Dead then
 return false end if isDeath then
 if now < episode.DeathRetryAt then
@@ -2766,8 +2763,7 @@ local active = model.primary or model.selected
 b.BackgroundColor3 = active and colors.accent or (model.hovered and colors.hover or colors.card)
 b.TextColor3 = active and colors.onAccent or colors.text
 stroke.Color = active and colors.accent or (model.hovered and colors.border or colors.borderSoft) end
-]===================================],
-[===================================[model.apply = apply b.MouseEnter:Connect(function() model.hovered = true
+model.apply = apply b.MouseEnter:Connect(function() model.hovered = true
 if not isMobile then playUiSound(HoverSound) end apply() end)
 b.MouseLeave:Connect(function() model.hovered = false apply() end)
 b.Activated:Connect(function() playUiSound(ClickSound) end) apply() return b, model end
@@ -3408,8 +3404,7 @@ B.Labels.Hud = nil B.LastHudSnapshot = nil end removeBladeBallOverlay()
 local function ballGateFor(ball, targeted, distance, signedApproach, now)
 if not ball then return nil end local gate = ballParryGates[ball] if not gate then
 gate = { Armed = true, LastDistance = distance, SafetyRetryCount = 0 }
-]===================================],
-[===================================[ballParryGates[ball] = gate end if not gate.Armed then
+ballParryGates[ball] = gate end if not gate.Armed then
 if not targeted then
 gate.TargetLostAt = gate.TargetLostAt or now end
 local deltaDistance = distance - (gate.LastDistance or distance)
@@ -4083,8 +4078,7 @@ Humanoid = nil, OldAutoRotate = nil,
 OldMode = nil, OldCameraType = nil, OldCameraSubject = nil,
 OldMouse = nil, OldMouseIcon = nil,
 Crosshair = nil, TouchConn = nil, Yaw = 0, Pitch = 0,
-]===================================],
-[===================================[} local camLock = R.CameraLock local SHOULDER_ZOOM = 6.5   local SHOULDER_SIDE = 1.05
+} local camLock = R.CameraLock local SHOULDER_ZOOM = 6.5   local SHOULDER_SIDE = 1.05
 local SHOULDER_HEIGHT = 1.65 local CAMERA_SENSITIVITY = 0.00265
 local TOUCH_SENSITIVITY = 0.0036 local PITCH_LIMIT = math.rad(75)
 local function resetCameraCharacter() local h = camLock.Humanoid
@@ -4497,9 +4491,7 @@ if hit and hit.Material ~= Enum.Material.Water and hit.Normal.Y >= 0.72
 and math.abs(hit.Position.Y - bottomY) <= 20
 and math.abs(hit.Position.Y - boxCFrame.Position.Y) <= 25 then
 return CFrame.new(hit.Position + Vector3.new(0, 4, 0))
-* root.CFrame.Rotation end end return nil end local function candyPlusEnabled()
-local plus = rawget(State, "Plus")
-return type(plus) == "table" and plus.Enabled == true end
+* root.CFrame.Rotation end end return nil end local function candyPlusEnabled() return true end
 local function countCandieOnce(item) local feature = State.Exploit.TeleportCandie
 if not item or feature.CountedCandies[item] then
 return false end feature.CountedCandies[item] = true
@@ -4744,8 +4736,7 @@ if not isCharacter then
 apply(node) for _, child in ipairs(node:GetChildren()) do
 stack[#stack + 1] = child end end end processed += 1
 if processed % 140 == 0 then task.wait() end end end) end
-]===================================],
-[===================================[State.coinClickerNoNativeMenu = function() return State.IsRoVibes and (
+State.coinClickerNoNativeMenu = function() return State.IsRoVibes and (
 State.CoinClickerMiniRoCoinsEnabled == true
 or (CoinClickerAutoEnabled == true and State.CoinClickerSilentEnabled == true)
 ) end task.spawn(function() local guard = { Stopped = false, Tracked = {}, Gui = nil,
@@ -4823,8 +4814,7 @@ and (not potion.Enabled or potion.CurrentTarget == nil) end
 State.CoinClickerFarmLaptop = { EquippedByHub = false, LastEquip = -math.huge,
 LastUnequip = -math.huge, Status = "Aguardando varredura" }
 State.coinClickerFarmShouldHoldLaptop = function()
-if not (State.Running and State.IsRoVibes and State.Plus.Enabled
-and CoinClickerAutoEnabled and State.CoinClickerSilentEnabled) then return false end
+if not (State.Running and State.IsRoVibes and CoinClickerAutoEnabled and State.CoinClickerSilentEnabled) then return false end
 local candy = State.Exploit.TeleportCandie local potion = State.Exploit.PotionFarm
 if not candy.Enabled then return false end  
 if candy.CurrentTarget ~= nil or candy.WaitingForCollection
@@ -5451,8 +5441,7 @@ if node and node.Parent then
 local attributes = node:GetAttributes() for key, value in pairs(attributes) do
 local normalized = normalizedOwnedKey(key) for kind, aliases in pairs(ownedItemAliases) do
 if aliases[normalized] then consider(kind, value, 3, "Atributo " .. tostring(key)) end end end
-]===================================],
-[===================================[if node:IsA("ValueBase") then
+if node:IsA("ValueBase") then
 local normalized = normalizedOwnedKey(node.Name)
 for kind, aliases in pairs(ownedItemAliases) do
 if aliases[normalized] then consider(kind, node.Value, 4, "Stat " .. node.Name) end end
@@ -6140,8 +6129,7 @@ local root = character:FindFirstChild("HumanoidRootPart") or character:WaitForCh
 if not humanoid or humanoid.Health <= 0 or not root then
 return false end State.destroySpinMover() feature.AntiReTransitionUntil = os.clock() + 2.0
 feature.OldAutoRotate = humanoid.AutoRotate
-]===================================],
-[===================================[UnicornHubHumanoidWrites.set(humanoid, "AutoRotate", false)
+UnicornHubHumanoidWrites.set(humanoid, "AutoRotate", false)
 local mover = Instance.new("BodyAngularVelocity") mover.Name = "__UnicornHubSpin"
 mover.MaxTorque = Vector3.new(0, math.huge, 0) mover.P = 100000
 mover.AngularVelocity = Vector3.new(0, feature.Speed, 0) mover.Parent = root
@@ -6835,8 +6823,7 @@ local targetCharacter = targetPlayer.Character if targetCharacter then
 table.insert(excluded, targetCharacter) end end
 State.WaterWalk.RaycastParams.FilterDescendantsInstances = excluded end
 State.destroyWaterWalkPlatform = function() local platform = State.WaterWalk.Platform
-]===================================],
-[===================================[if platform then
+if platform then
 platform:Destroy() State.WaterWalk.Platform = nil end State.WaterWalk.LastCharacter = nil
 State.WaterWalk.LastPlatformActive = false end State.updateWaterWalk = function()
 if not State.WaterWalk.Enabled then
@@ -6991,8 +6978,7 @@ State.loadPersistentCache()
 ButtonsMuted = State.SettingsCache.Data.Values.MuteButtonSounds == true
 State.Plus = { OwnerUserId = 1269250520, IsOwner = player.UserId == 1269250520, OwnerEnabled =
 State.SettingsCache.Data.Values.OwnerPlusEnabled ~= false, OwnerAddedAt =
-tonumber(State.SettingsCache.Data.Values.OwnerPlusSince), Enabled = false, ThemeEnabled =
-State.SettingsCache.Data.Values.PlusThemeEnabled ~= false, Neon = Color3.fromRGB(196, 72, 255),
+tonumber(State.SettingsCache.Data.Values.OwnerPlusSince), Enabled = true, ThemeEnabled = State.SettingsCache.Data.Values.PlusThemeEnabled ~= false, Neon = Color3.fromRGB(196, 72, 255),
 NeonSoft = Color3.fromRGB(220, 132, 255), Deep = Color3.fromRGB(18, 7, 30), SyncConnection = nil, }
 State.Graphics = (function() local month = 0 pcall(function()
 month = tonumber(os.date("%m")) or 0 end)
@@ -7015,9 +7001,7 @@ if #raw ~= 6 or not raw:match("^%x%x%x%x%x%x$") then
 return nil end return "#" .. raw:upper() end State.getGraphicsCustomColor = function()
 local hex = State.normalizeGraphicsHex(State.Graphics.CustomHex) or "#A855F7"
 return Color3.fromRGB(tonumber(hex:sub(2, 3), 16), tonumber(hex:sub(4, 5), 16),
-tonumber(hex:sub(6, 7), 16)) end State.setGraphicsCustomHex = function(value)
-if not (State.Plus and State.Plus.Enabled) then return false end
-local hex = State.normalizeGraphicsHex(value) if not hex then return false end
+tonumber(hex:sub(6, 7), 16)) end State.setGraphicsCustomHex = function(value) local hex = State.normalizeGraphicsHex(value) if not hex then return false end
 State.Graphics.CustomHex = hex State.SettingsCache.Data.Values.GraphicsCustomHex = hex
 if State.savePersistentOption then
 State.savePersistentOption("Graphics HTML Color", hex, "Hex")
@@ -7033,10 +7017,7 @@ found = true break end end if not found then
 selected = State.Graphics.DefaultTheme end
 if State.canUseGraphicsTheme and not State.canUseGraphicsTheme(selected) then
 selected = State.Graphics.DefaultTheme end return selected end
-State.canUseGraphicsTheme = function(themeName) themeName = tostring(themeName or "")
-local graphics = rawget(State, "Graphics") if not graphics then
-return themeName == "Dark UI (Normal)" end if graphics.PlusOnly[themeName] then
-return rawget(State, "Plus") and State.Plus.Enabled == true end return true end
+State.canUseGraphicsTheme = function(themeName) return true end
 State.setGraphicsTheme = function(themeName) local graphics = rawget(State, "Graphics")
 if not graphics then
 return false end themeName = tostring(themeName or "") local found = false
@@ -7137,9 +7118,7 @@ local copy = {} for key, value in pairs(selected) do
 copy[key] = value end return copy end State.FlowOutline = (function()
 local manager = {Items = {}, Screens = {}, Connections = {}, Alive = true,
 Clock = 0, ScanClock = 0, ThemeClock = 0, ThemeKey = "", StyleRevision = 0,
-ThemePlusActive = false} local function themePlusEnabled() local plus = State.Plus
-return type(plus) == "table" and plus.Enabled == true
-and plus.ThemeEnabled ~= false end local skipScreens = {
+ThemePlusActive = false} local function themePlusEnabled() return true end local skipScreens = {
 UnicornHubRakeShiftLockReticle = true,  
 } local namedPanels = {
 Main = true, MiniCoinClicker = true, DonatePanel = true,
@@ -7363,13 +7342,8 @@ return manager end)()
 if State.Plus.OwnerEnabled and not State.Plus.OwnerAddedAt then
 State.Plus.OwnerAddedAt = os.time()
 State.SettingsCache.Data.Values.OwnerPlusSince = State.Plus.OwnerAddedAt end
-State.hasPlus = function(userId) userId = tonumber(userId)
-if not userId or userId <= 0 then
-return false end userId = math.floor(userId) if userId == State.Plus.OwnerUserId then
-return State.Plus.OwnerEnabled == true end
-local entry = State.SettingsCache.Data.PlusUsers[ tostring(userId) ] if entry == true then
-return true end return type(entry) == "table" and entry.Enabled ~= false end
-State.Plus.Enabled = State.hasPlus(player.UserId) State.isPlusThemeActive = function()
+State.hasPlus = function(userId) return true end
+State.Plus.Enabled = true State.isPlusThemeActive = function()
 if State.getGraphicsTheme and State.getGraphicsTheme() ~= "Dark UI (Normal)" then
 return false end
 return State.Plus.Enabled == true and State.Plus.ThemeEnabled ~= false end
@@ -7381,15 +7355,14 @@ bg = c.bg, side = c.side, panel = c.panel, card = c.card,
 hover = c.cardHover, border = c.border, borderSoft = c.borderSoft,
 text = c.text, text2 = c.text2, muted = c.muted, dim = c.dim,
 accent = c.white, accentHover = c.neonSoft, onAccent = c.black,
-} end State.setPlusThemeEnabled = function(value) if not State.Plus.Enabled then
-return false end value = value == true State.Plus.ThemeEnabled = value
+} end State.setPlusThemeEnabled = function(value) value = value == true State.Plus.ThemeEnabled = value
 State.SettingsCache.Data.Values.PlusThemeEnabled = value
 if State.makePersistentOptionKey then
 State.SettingsCache.Data.Values[ State.makePersistentOptionKey("Theme PLUS", "Enabled" ) ] = value end
 pcall(function() playerGui:SetAttribute(SettingsPrefix .. "PlusThemeEnabled", value) end)
 State.queuePersistentCacheWrite() State.flushPersistentCache() return true end
 State.setOwnerPlusEnabled = function(value) if not State.Plus.IsOwner then
-return false end value = value == true local wasEnabled = State.Plus.OwnerEnabled == true
+return false end value = true local wasEnabled = State.Plus.OwnerEnabled == true
 State.Plus.OwnerEnabled = value State.Plus.Enabled = value
 State.SettingsCache.Data.Values.OwnerPlusEnabled = value if value and not wasEnabled then
 State.Plus.OwnerAddedAt = os.time()
@@ -7523,56 +7496,18 @@ oldGui:Destroy() end local oldLoading = playerGui:FindFirstChild("UnicornHubStar
 if oldLoading then
 oldLoading:Destroy() end end task.wait(0.14) task.spawn(fn) task.delay(5, function()
 if transition and transition.Parent then transition:Destroy() end end) end)
-return true end State.reexecuteRemoteHub = function() if State.ReloadingHub then
-]===================================],
-[===================================[return false end State.ReloadingHub = true
-local transition = State.showReloadTransition("BUSCANDO NOVA VERSAO...")
-task.spawn(function() local ok, source = pcall(function()
-return game:HttpGet("https://lhub-api.onrender.com/script?key=LHUB" ) end)
-if not ok or type(source) ~= "string" or source == "" or type(loadstring) ~= "function" then
-State.ReloadingHub = false State.DeployWatch.TargetVersion = nil
-if transition and transition.Parent then transition:Destroy() end
-warn("[Unicorn Hub] Falha ao baixar a versão atual do lhub-api.") return end
-local fn, compileError = loadstring(source) if type(fn) ~= "function" then
-State.ReloadingHub = false State.DeployWatch.TargetVersion = nil
-if transition and transition.Parent then transition:Destroy() end
-warn("[Unicorn Hub] Falha ao compilar script remoto:", compileError) return end
-local env = State.getCacheEnvironment()
-if type(env) == "table" then env.__UnicornHubAutoSource = source end
-_G.__UnicornHubAutoSource = source
-if State.DeployWatch and State.DeployWatch.TargetVersion then
-local env = State.getCacheEnvironment() if type(env) == "table" then
-env.__UnicornHubLastDeployVersion = State.DeployWatch.TargetVersion end end
-_G.__UnicornHubReloadIntro = true pcall(function()
-if type(getgenv) == "function" then getgenv().__UnicornHubReloadIntro = true end end)
-local runtime = rawget(State, "HubRuntime")
-if type(runtime) == "table" and type(runtime.stop) == "function" then
-pcall(runtime.stop) end task.wait(0.08) task.spawn(fn) task.delay(5, function()
-if transition and transition.Parent then transition:Destroy() end end) end)
-return true end State.DeployWatch = {
-Url = "https://lhub-api.onrender.com/version",
-Interval = 30,
-LastCheck = -math.huge,
-Busy = false,
-TargetVersion = nil,
-} State.checkDeployVersion = function() local watch = State.DeployWatch
-if not State.Running or State.ReloadingHub or watch.Busy then return end
-local now = os.clock() if now - watch.LastCheck < watch.Interval then return end
-watch.LastCheck = now watch.Busy = true local success, result = pcall(function()
-local response = game:HttpGet(watch.Url .. "?nocache=" .. tostring(os.time()))
-return HttpService:JSONDecode(response) end) watch.Busy = false
-if not success or type(result) ~= "table" then return end local version = result.version
-if type(version) ~= "string" or #version < 7 or #version > 128 then return end
-local env = State.getCacheEnvironment() if type(env) ~= "table" then return end
-local previous = env.__UnicornHubLastDeployVersion if previous == nil then
-env.__UnicornHubLastDeployVersion = version return end
-if previous == version or State.ReloadingHub then return end watch.TargetVersion = version
-print("[Unicorn Hub] Novo deploy detectado; recarregando...") State.reexecuteRemoteHub() end
+return true end State.reexecuteRemoteHub = function()
+    State.ReloadingHub = false
+    warn("[Unicorn Hub] Atualizador remoto desativado nesta versão offline.")
+    return false
+end
+State.DeployWatch = {Url = "", Interval = math.huge, LastCheck = 0, Busy = false, TargetVersion = nil}
+State.checkDeployVersion = function() return false end
 State.HubBus = { Disabled = true, }
 State.Admin = { PlayerAddedConnection = nil, PlayerRemovingConnection = nil, HubUsers = {}, PlusAcks = {},
 PresenceToken = 0, AllowOwnerPull = State.SettingsCache.Data.Values.AllowOwnerPull == true,
 AllowOwnerAdmin = State.SettingsCache.Data.Values.AllowOwnerAdmin == true, SessionStartedAt = os.time(), }
-State.Api = { BaseUrl = "https://lhub-sync-v2.onrender.com",
+State.Api = { BaseUrl = "",
 AdminKey = State.Plus.IsOwner and table.concat({ "PXtWOMhSKgk3", "SQbpckd8-Nzt", "U1bmsbnBqEKy",
 "8UxzvR0", }) or nil, Running = false, Token = 0, PresenceUsers = {}, AllUsers = {},
 LastPresenceFetch = 0, LastAllPresenceFetch = 0, LastError = nil, SessionToken = nil, CommandToken = 0,
@@ -7582,35 +7517,13 @@ State.HubAdminApi = { Protocol = "LHADM40", PollInterval = isMobile and 1.0 or 0
 AckWait = 8.5, PromptTTL = 10, LegacyPollingEnabled = false, ActionToCode = { bring = "b", freeze = "f", unfreeze = "u", sit = "s",
 respawn = "r", }, CodeToAction = { b = "bring", f = "freeze", u = "unfreeze", s = "sit", r = "respawn", }, }
 State.apiRequest = function(method, path, body, admin)
-local requestFn = getRequestFunction() if not requestFn then
-return false, { error = "HTTP_UNAVAILABLE", } end
-local headers = { ["Accept"] = "application/json", ["Content-Type"] = "application/json", }
-if admin == true then
-if not State.Plus.IsOwner or type(State.Api.AdminKey) ~= "string" or State.Api.AdminKey == "" then
-return false, { error = "OWNER_ONLY", } end headers["x-k"] = State.Api.AdminKey end
-local requestBody = nil if body ~= nil then
-local okEncode, encoded = pcall(HttpService.JSONEncode, HttpService, body)
-if not okEncode then
-return false, { error = "ENCODE_FAILED", } end requestBody = encoded end
-local ok, response = pcall(function()
-return requestFn({ Url = State.Api.BaseUrl .. tostring(path or ""), Method =
-tostring(method or "GET"), Headers = headers, Body = requestBody, }) end)
-if not ok or type(response) ~= "table" then
-State.Api.LastError = tostring(response or "REQUEST_FAILED" )
-return false, { error = "REQUEST_FAILED", } end
-local status = tonumber(response.StatusCode or response.Status or response.status or 0) or 0
-local raw = response.Body or response.body or response.ResponseBody or ""
-local decoded = {} if type(raw) == "string" and raw ~= "" then
-pcall(function() decoded = HttpService:JSONDecode(raw) end) end
-if type(decoded) ~= "table" then
-decoded = {} end if status ~= 0 and (status < 200 or status >= 300) then
-decoded.error = decoded.error or ("HTTP_" .. tostring(status))
-State.Api.LastError = tostring(decoded.error) return false, decoded end
-State.Api.LastError = nil return true, decoded end
+    State.Api.LastError = "BACKEND_DESATIVADO_OFFLINE"
+    return false, {error = "BACKEND_DESATIVADO_OFFLINE"}
+end
 -- Registro automatico de presenca na API administrativa separada.
 -- Identifica a sessao do Hub; nao concede permissoes sobre outros personagens.
 State.AdminPresenceApi = {
-    BaseUrl = "https://ss-sofo.onrender.com",
+    BaseUrl = "",
     Running = false,
     Token = 0,
     Session = nil,
@@ -7633,54 +7546,9 @@ State.getAdminPanelKey = function()
     return key
 end
 State.adminPanelRequest = function(method, path, payload, requiresOwner)
-    local api = State.AdminPresenceApi
-    local requestFn = getRequestFunction()
-    if type(requestFn) ~= "function" then
-        api.LastError = "HTTP_UNAVAILABLE"
-        return false, {error = "HTTP_UNAVAILABLE"}
-    end
-    local headers = { ["Accept"] = "application/json", ["Content-Type"] = "application/json" }
-    if requiresOwner == true then
-        local key = State.getAdminPanelKey()
-        if not key then return false, {error = "ADMIN_KEY_REQUIRED"} end
-        headers["x-admin-key"] = key
-    end
-    local encoded = nil
-    if payload ~= nil then
-        local ok, result = pcall(HttpService.JSONEncode, HttpService, payload)
-        if not ok then return false, {error = "ENCODE_FAILED"} end
-        encoded = result
-    end
-    local ok, response = pcall(requestFn, {
-        Url = api.BaseUrl .. tostring(path or ""),
-        Method = method or "GET",
-        Headers = headers,
-        Body = encoded,
-    })
-    if not ok or type(response) ~= "table" then
-        api.LastError = "REQUEST_FAILED"
-        return false, {error = "REQUEST_FAILED"}
-    end
-    local status = tonumber(response.StatusCode or response.Status or response.status or 0) or 0
-    local data = {}
-    local raw = response.Body or response.body or response.ResponseBody or ""
-    if type(raw) == "string" and raw ~= "" then
-        local decodeOk, parsed = pcall(HttpService.JSONDecode, HttpService, raw)
-        if decodeOk and type(parsed) == "table" then data = parsed end
-    end
-    if status ~= 0 and (status < 200 or status >= 300) then
-        data.error = tostring(data.error or ("HTTP_" .. status))
-        api.LastError = data.error
-        return false, data
-    end
-    if data.ok ~= true then
-        api.LastError = tostring(data.error or "INVALID_RESPONSE")
-        return false, data
-    end
-    api.LastError = nil
-    return true, data
+    State.AdminPresenceApi.LastError = "BACKEND_DESATIVADO_OFFLINE"
+    return false, {error = "BACKEND_DESATIVADO_OFFLINE"}
 end
--- Refresh admin player cards from the new service; this does not change permissions.
 State.fetchAdminPanelUsers = function(force)
     if not State.Plus.IsOwner or not State.getAdminPanelKey() then return false end
     local api = State.AdminPresenceApi
@@ -7836,7 +7704,7 @@ State.startAdminPresence = function()
 end
 -- Unicorn Hub Remote: commands scoped to management of the Hub itself.
 -- Remote API URL verified from the owner Render service configuration.
-State.RemoteBridge = { Url = "https://liehub-remote.onrender.com", Session = nil, Running = false, Token = 0, Config = nil,
+State.RemoteBridge = { Url = "", Session = nil, Running = false, Token = 0, Config = nil,
     LastError = nil, LastCommandId = nil, LastCommandResult = nil, LastCommandOk = false }
 do
     local env = _G
@@ -7844,41 +7712,11 @@ do
         local ok, shared = pcall(getgenv)
         if ok and type(shared) == "table" then env = shared end
     end
-    local url = rawget(env, "__UnicornHubRemoteApiUrl")
-    if type(url) == "string" and string.match(url, "^https://[%w%.%-]+") then
-        State.RemoteBridge.Url = string.gsub(url, "/+$", "")
-    end
+        -- URL remota customizada desativada na versão offline.
 end
 State.remoteBridgeRequest = function(path, payload)
-    local bridge = State.RemoteBridge
-    if bridge.Url == "" then return false, {error = "REMOTE_API_NOT_CONFIGURED"} end
-    local fn = getRequestFunction()
-    if type(fn) ~= "function" then return false, {error = "HTTP_UNAVAILABLE"} end
-    local jsonOk, encoded = pcall(HttpService.JSONEncode, HttpService, payload)
-    if not jsonOk then return false, {error = "ENCODE_FAILED"} end
-    local callOk, response = pcall(fn, {
-        Url = bridge.Url .. path, Method = "POST",
-        Headers = {["Accept"]="application/json", ["Content-Type"]="application/json"},
-        Body = encoded,
-    })
-    if not callOk or type(response) ~= "table" then
-        bridge.LastError = "REQUEST_FAILED"
-        return false, {error = "REQUEST_FAILED"}
-    end
-    local status = tonumber(response.StatusCode or response.Status or 0) or 0
-    local raw = response.Body or response.body or ""
-    local parseOk, data = pcall(HttpService.JSONDecode, HttpService, raw)
-    if not parseOk or type(data) ~= "table" then
-        bridge.LastError = "INVALID_RESPONSE"
-        return false, {error = "INVALID_RESPONSE"}
-    end
-    if status == 403 and data.error == "SESSION_REQUIRED" then bridge.Session = nil end
-    if status < 200 or status >= 300 or data.ok ~= true then
-        bridge.LastError = tostring(data.error or "API_FAILED")
-        return false, data
-    end
-    bridge.LastError = nil
-    return true, data
+    State.RemoteBridge.LastError = "BACKEND_DESATIVADO_OFFLINE"
+    return false, {error = "BACKEND_DESATIVADO_OFFLINE"}
 end
 State.startRemoteBridge = function()
     local bridge = State.RemoteBridge
@@ -7940,7 +7778,7 @@ State.startRemoteBridge = function()
     end)
 end
 State.applyBackendPlus = function(value) if State.Plus.IsOwner then
-return false end value = value == true local oldValue = State.Plus.Enabled == true
+return false end value = true local oldValue = State.Plus.Enabled == true
 local key = tostring(player.UserId) if value then
 local current = State.SettingsCache.Data.PlusUsers[ key ] if type(current) ~= "table" then
 current = { Enabled = true, AddedAt = os.time(), }
@@ -7949,8 +7787,8 @@ current.Enabled = true if type(current.AddedAt) ~= "number" then
 current.AddedAt = os.time() end end State.SettingsCache.Data.PlusUsers[ key ] = current
 else
 State.SettingsCache.Data.PlusUsers[ key ] = nil end
-State.Plus.Enabled = State.hasPlus(player.UserId) pcall(function()
-playerGui:SetAttribute("UnicornHubPlus", State.Plus.Enabled) end)
+State.Plus.Enabled = true pcall(function()
+playerGui:SetAttribute("UnicornHubPlus", true) end)
 State.queuePersistentCacheWrite() State.flushPersistentCache()
 if oldValue ~= State.Plus.Enabled then
 task.defer(function() if State.Running then
@@ -8579,8 +8417,7 @@ normalized = string.gsub(normalized, "[^%w]+", "_" )
 normalized = string.gsub(normalized, "^_+", "" )
 normalized = string.gsub(normalized, "_+$", "" ) if normalized == "" then
 normalized = "option" end local key = "UIOption_" .. normalized
-]===================================],
-[===================================[if suffix and suffix ~= "" then
+if suffix and suffix ~= "" then
 key ..= "_" .. tostring(suffix) end return key end
 State.getPersistentOption = function(titleText, suffix)
 return getCachedSetting(State.makePersistentOptionKey(titleText, suffix)) end
@@ -8630,7 +8467,7 @@ PendingIds = {},
 Writing = {}, SyncStatus = "aguardando", LastSyncError = nil, LastRemotePoll = 0, LastWriteError = nil,
 LastRemoteAttempt = 0, RemoteBusy = false,
 WriteKey = nil,  
-BaseUrl = "https://lhub-tags.onrender.com",
+BaseUrl = "",
 Effects = {"default", "glitch", "angel", "demon", "devil", "crown", "void", "blackhole",
 "scramble", "mystery", "rainbow", "ocean", "matrix", "neon", "cyber", "vampire",
 "toxic", "love", "sakura", "phoenix", "celestial", "inferno", "frost", "phantom",
@@ -8739,32 +8576,9 @@ TagEffect = isOwnerProfile and "lie" or "default", TagFont = "GothamBold",
 Cor1Tag = isOwnerProfile and "#A4FF28" or "#FFFFFF",
 Cor2Tag = isOwnerProfile and "#CFFF77" or "#91E1FF", } end
 State.tagStudioApiRequest = function(method, path, body, admin)
-local base = State.TagStudio.BaseUrl if type(base) ~= "string" or base == "" then
-return false, {error = "URL_NAO_CONFIGURADA"} end local requestFn = getRequestFunction()
-if type(requestFn) ~= "function" then
-return false, {error = "HTTP_UNAVAILABLE"} end
-local headers = { ["Content-Type"] = "application/json", ["Accept"] = "application/json", }
-if admin == true then
-if not State.Plus.IsOwner or player.UserId ~= State.Plus.OwnerUserId then
-return false, {error = "OWNER_ONLY"} end
-if type(State.TagStudio.WriteKey) ~= "string" or #State.TagStudio.WriteKey < 12 then
-return false, {error = "CHAVE_TAG_NAO_INFORMADA"} end
-headers["x-k"] = State.TagStudio.WriteKey end local bodyText = nil if body ~= nil then
-local ok, encoded = pcall(HttpService.JSONEncode, HttpService, body)
-if not ok then return false, {error = "ENCODE_FAILED"} end bodyText = encoded end
-local params = { Url = base .. tostring(path or ""), Method = method, Headers = headers, }
-if bodyText ~= nil then params.Body = bodyText end
-local ok, response = pcall(requestFn, params) if not ok or type(response) ~= "table" then
-return false, {error = "REQUEST_FAILED"} end
-local status = tonumber(response.StatusCode or response.Status or response.status or 0) or 0
-if status < 200 or status >= 300 then
-return false, {error = "HTTP_" .. tostring(status)} end
-local payload = response.Body or response.body or response.ResponseBody or ""
-if type(payload) ~= "string" then return false, {error = "BAD_RESPONSE"} end
-local okDecode, result = pcall(HttpService.JSONDecode, HttpService, payload)
-if not okDecode or type(result) ~= "table" or result.ok ~= true then
-return false, {error = (type(result) == "table" and result.error) or "BAD_RESPONSE"} end
-return true, result end
+    State.TagStudio.LastSyncError = "BACKEND_DESATIVADO_OFFLINE"
+    return false, {error = "BACKEND_DESATIVADO_OFFLINE"}
+end
 do
 local raw = State.getPersistentOption("Tag Studio", "PendingIds_" .. tostring(player.UserId))
 if type(raw) == "string" and raw ~= "" then
@@ -9242,8 +9056,7 @@ lastLocalTagAnchorRefresh = now end local runtime = State.UnicornHubTagRuntime
 for _, item in pairs(runtime.Displays) do
 if item.Anchor and item.Anchor.Parent then
 local root = item.Root local head = item.Head local position = nil
-]===================================],
-[===================================[if root and root.Parent then
+if root and root.Parent then
 position = root.Position + Vector3.new(0, 3.55, 0)
 elseif head and head.Parent then
 position = head.Position + Vector3.new(0, 1.35, 0) end
@@ -9931,8 +9744,7 @@ local vim = State.CoinClickerInput.VirtualInput if not vim then
 return false end local x, y = getButtonCenter(button) if not x then
 return false end return pcall(function() vim:SendMouseMoveEvent(x, y, game)
 task.wait(0.025) vim:SendMouseButtonEvent(x, y, 0, true, game, 0) task.wait(0.05)
-]===================================],
-[===================================[vim:SendMouseButtonEvent(x, y, 0, false, game, 0) end) end
+vim:SendMouseButtonEvent(x, y, 0, false, game, 0) end) end
 local function clickWeakSingle(button)
 if State.CoinClickerInput.MouseClick or (State.CoinClickerInput.MousePress
 and State.CoinClickerInput.MouseRelease) then
@@ -10342,7 +10154,7 @@ do
 end
 State.stepRoCoins = function(now, forceSilent, scanAutoClick)
 if not State.isCoinClickerLaptopEquipped() then return false end
-if not State.Plus.Enabled or (not State.AutoRoCoins and not scanAutoClick) then
+if not (not State.AutoRoCoins and not scanAutoClick) then
 return false end local runtime = State.CCAutoClick
 if forceSilent and State.CoinClickerBackground and State.CoinClickerBackground.Driver then
 if now - runtime.LastStaminaCheck >= math.max(0.40, runtime.StaminaCheckInterval) then
@@ -10369,7 +10181,7 @@ return false end runtime.PausedForStamina = false
 elseif stamina <= 0.5 then
 runtime.PausedForStamina = true return false end return State.clickRoCoinsTarget() end
 State.CoinClickerAnywhereClickConnection = UserInputService.InputBegan:Connect(function(input, processed)
-if processed or not State.Running or not State.IsRoVibes or not State.Plus.Enabled then return end
+if processed or not State.Running or not State.IsRoVibes then return end
 if input.UserInputType ~= Enum.UserInputType.MouseButton1
 and input.UserInputType ~= Enum.UserInputType.Touch then return end
 if not State.AutoRoCoins or not State.coinClickerNoNativeMenu()
@@ -10649,8 +10461,7 @@ BlackMarketFlow.nextAction = now + 2.0 end return end
 if BlackMarketFlow.phase == "opening" then
 BlackMarketFlow.phase = "buying" BlackMarketFlow.nextAction = now + 0.25 return end
 local balance = getCoinBalance() local entries = getBlackMarketEntries(modal)
-]===================================],
-[===================================[if balance then
+if balance then
 for _, entry in ipairs(entries) do
 if entry.price <= balance then
 local attempted = BlackMarketFlow.recentClicks[entry.button]
@@ -10796,9 +10607,7 @@ for obj, _ in pairs(saved) do
 if obj and obj.Parent and obj:IsA("GuiObject") then
 restore(obj) end end table.clear(saved) end local function applyCompact()
 local gui = getGui() if not gui then
-return end if not State.Plus.Enabled then
-clearCompactScale(getFrame("LeftColumn")) clearCompactScale(getFrame("RightColumn"))
-restoreCompactLayout() return end if State.CoinClickerWeakExecutor then
+return end if State.CoinClickerWeakExecutor then
 clearCompactScale(gui:FindFirstChild("LeftColumn", true))
 clearCompactScale(gui:FindFirstChild("RightColumn", true)) restoreCompactLayout()
 return end local main = gui:FindFirstChild("Main", true)
@@ -11356,8 +11165,7 @@ animation:Destroy() end BackpackRideSaved.animationTrack = nil
 BackpackRideSaved.animationObject = nil BackpackRideSaved.lastAnimationCheck = 0 end
 State.BackpackSitAnimationId = "rbxassetid://132405631453144"
 State.playBackpackSitAnimation = function(humanoid) State.stopBackpackSitAnimation()
-]===================================],
-[===================================[if not humanoid or not humanoid.Parent then
+if not humanoid or not humanoid.Parent then
 return false end local animator = humanoid:FindFirstChildOfClass("Animator" )
 if not animator then
 animator = Instance.new("Animator") animator.Parent = humanoid end
@@ -11928,25 +11736,8 @@ State.uiTween(trackScale, TweenInfo.new(0.12, Enum.EasingStyle.Quad, Enum.Easing
 ), { Scale = 1 })
 State.uiTween(knob, TweenInfo.new(0.12, Enum.EasingStyle.Quad, Enum.EasingDirection.Out), {
 Rotation = 0 }) end) end U.requiresPlus = function(page, titleText, key)
-return page == U.plusPage or titleText == "Theme PLUS" or key == "AutoRoCoins" or key == "CompactView" end
-U.addPlusBadge = function(card, rightOffset) if not card then return nil end
-local badge = Instance.new("TextLabel") badge.Name = "UnicornHubPlusAccessBadge"
-badge.AnchorPoint = Vector2.new(0, 0.5) badge.Size = UDim2.fromOffset(55, 19)
-badge.Position = UDim2.new(1, -(rightOffset or 110), 0.5, 0)
-badge.BackgroundTransparency = 1 badge.BorderSizePixel = 0 badge.Text = "PLUS+"
-badge.TextColor3 = Color3.fromRGB(255, 255, 255) badge.TextSize = 10
-badge.Font = Enum.Font.GothamBold badge.TextXAlignment = Enum.TextXAlignment.Center
-badge.TextYAlignment = Enum.TextYAlignment.Center badge.ZIndex = 6 badge.Parent = card
-local gradient = Instance.new("UIGradient") gradient.Name = "PlusNeonAnimatedGradient"
-gradient.Color = ColorSequence.new({ ColorSequenceKeypoint.new(0, Color3.fromRGB(159, 44, 255)),
-ColorSequenceKeypoint.new(0.25, Color3.fromRGB(244, 137, 255)),
-ColorSequenceKeypoint.new(0.52, Color3.fromRGB(199, 63, 255)),
-ColorSequenceKeypoint.new(0.77, Color3.fromRGB(132, 29, 255)),
-ColorSequenceKeypoint.new(1, Color3.fromRGB(250, 168, 255)), }) gradient.Rotation = 0
-gradient.Parent = badge if not State.Performance.LowEnd then
-TweenService:Create(gradient,
-TweenInfo.new(3.4, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, -1), {Rotation = 360} ):Play() end
-return badge end U.toggleRefreshers = {} U.refreshToggleKey = function(key)
+return false end
+U.addPlusBadge = function(card, rightOffset) return nil end U.toggleRefreshers = {} U.refreshToggleKey = function(key)
 local refreshers = U.toggleRefreshers[key] if not refreshers then
 return end for _, refreshFn in ipairs(refreshers) do
 pcall(refreshFn) end end State.refreshCoinAutoNativeToggle = U.refreshToggleKey
@@ -11964,8 +11755,7 @@ toggleVisual(track, knob, State[key] == true) end if key == "AutoRoCoins" then
 State.refreshAutoRoCoinsToggle = refresh end
 U.toggleRefreshers[key] = U.toggleRefreshers[key] or {}
 table.insert(U.toggleRefreshers[key], refresh) track.Activated:Connect(function()
-if plusRequired and not State.Plus.Enabled and not State[key] then
-U.showPlusErrorToast() return end
+
 if key == "CoinClickerMiniRoCoinsEnabled" and not State[key]
     and State.isCoinClickerNativeInterfaceOpen() then
     U.showToggleToast(titleText, false, "Feche a interface do laptop primeiro")
@@ -11994,8 +11784,7 @@ track.Parent = card corner(track, 11) local knob = Instance.new("Frame")
 knob.Size = UDim2.fromOffset(14, 14) knob.BorderSizePixel = 0 knob.Parent = track
 corner(knob, 7) bindToggleHover(track, knob) local function refresh()
 toggleVisual(track, knob, getter()) end track.Activated:Connect(function()
-if plusRequired and not State.Plus.Enabled and not getter() then
-U.showPlusErrorToast() refresh() return end
+
 if titleText == "CoinClicker sem abrir laptop" and not getter()
     and State.isCoinClickerNativeInterfaceOpen() then
     U.showToggleToast(titleText, false, "Feche a interface do laptop primeiro")
@@ -12009,8 +11798,7 @@ local function whiteActionCard(page, titleText, subtitleText, buttonText, callba
 local card = cardBase(page, 78)
 label(card, titleText, UDim2.new(1, -24, 0, 18), UDim2.fromOffset(12, 9), Enum.Font.GothamBold, 10, C.text)
 local button = Instance.new("TextButton") button.Name = "UnicornHubWhiteAction"
-]===================================],
-[===================================[button.Size = UDim2.new(1, -24, 0, 32) button.Position = UDim2.fromOffset(12, 36)
+button.Size = UDim2.new(1, -24, 0, 32) button.Position = UDim2.fromOffset(12, 36)
 button.BackgroundColor3 = C.white button.BorderSizePixel = 0 button.Text = buttonText
 button.TextColor3 = C.black button.Font = Enum.Font.GothamBold button.TextSize = 10
 button.AutoButtonColor = false button.Parent = card corner(button, 9)
@@ -12651,8 +12439,7 @@ U.coinClickerDockClip.Parent = U.coinClickerDock corner(U.coinClickerDockClip, 1
 U.coinClickerDockHeader = Instance.new("Frame")
 U.coinClickerDockHeader.Name = "CoinClickerDockHeader"
 U.coinClickerDockHeader.Size = UDim2.new(1, 0, 0, 44)
-]===================================],
-[===================================[U.coinClickerDockHeader.BackgroundColor3 = C.side
+U.coinClickerDockHeader.BackgroundColor3 = C.side
 U.coinClickerDockHeader.BorderSizePixel = 0
 U.coinClickerDockHeader.ClipsDescendants = true
 U.coinClickerDockHeader.Parent = U.coinClickerDockClip corner(U.coinClickerDockHeader, 13)
@@ -13382,8 +13169,7 @@ confirmAdminAction("CONFIRMAR RESPAWN",
 function() remoteAdminAction("respawn") end
 ) end
 ) adminActionButton("FREEZE", 66, 107, 76, function()
-]===================================],
-[===================================[confirmAdminAction("CONFIRMAR FREEZE",
+confirmAdminAction("CONFIRMAR FREEZE",
 "Tem certeza que deseja congelar " .. targetPlayer.DisplayName .. "?", "CONGELAR",
 function() remoteAdminAction("freeze") end
 ) end
@@ -13479,7 +13265,7 @@ U.adminApiStatusCard = cardBase(U.adminPage, 46)
 U.adminApiStatus = label(U.adminApiStatusCard, "Conectando à API...", UDim2.new(1, -24, 0, 20),
 UDim2.fromOffset(12, 13), Enum.Font.GothamBold, 9, C.muted)
 actionCard(U.adminPage, "Reload de todos",
-"Reexecuta o loader do lhub-api nos clientes ativos detectados pela API.", "RELOAD TODOS", function()
+"Recurso remoto indisponível nesta versão sem backend.", "RELOAD TODOS", function()
 if U.adminApiStatus then
 U.adminApiStatus.Text = "Enviando sinal de reload..." end task.spawn(function()
 local ok, count = State.requestGlobalReload()
@@ -14088,8 +13874,7 @@ return exactDisplay.UserId, exactDisplay.Name end if displayAmbiguous then
 return nil, nil, "Nome repetido. Use @usuario." end local ok, fetchedId = pcall(function()
 return Players:GetUserIdFromNameAsync(raw) end)
 if ok and tonumber(fetchedId) then return fetchedId, raw end
-]===================================],
-[===================================[return nil, nil, "Usuario nao encontrado." end local busy = false
+return nil, nil, "Usuario nao encontrado." end local busy = false
 local function updateIgnore(ignored) if busy then return end busy = true
 local raw = normalize(input.Text) local id, name, reason = resolveUser(raw, not ignored)
 if id and State.setLaserGunIgnored(id, name, ignored) then
@@ -14169,7 +13954,7 @@ questAuto.UpdateConnection:Disconnect() questAuto.UpdateConnection = nil end end
 questAuto.Stop = stopQuestCollector local function setQuestCollector(enabled)
 enabled = enabled == true if not enabled then
 stopQuestCollector() return end if questAuto.Enabled then
-return end if not State.Running or not State.Plus.Enabled or not State.IsRoVibes then
+return end if not State.Running or not State.IsRoVibes then
 return end questAuto.Enabled = true questAuto.Token += 1 questAuto.RecentAttempts = {}
 questAuto.StartAttempts = {} local token = questAuto.Token task.spawn(function()
 while State.Running and questAuto.Enabled and questAuto.Token == token
@@ -14206,12 +13991,9 @@ luckyKnob.Size = UDim2.fromOffset(14, 14) luckyKnob.BorderSizePixel = 0
 luckyKnob.Parent = luckyTrack corner(luckyKnob, 7) bindToggleHover(luckyTrack, luckyKnob)
 local function refreshLuckyAlert()
 toggleVisual(luckyTrack, luckyKnob, State.Exploit.LuckyBlockTeleport.Enabled == true) end
-teleportButton.Activated:Connect(function() if not State.Plus.Enabled then
-U.showPlusErrorToast() return end pcall(function()
-State.teleportToAvailableLuckyBlock() end) end) luckyTrack.Activated:Connect(function()
+teleportButton.Activated:Connect(function() pcall(function() State.teleportToAvailableLuckyBlock() end) end) luckyTrack.Activated:Connect(function()
 local enabled = not (State.Exploit.LuckyBlockTeleport.Enabled == true)
-if enabled and not State.Plus.Enabled then
-U.showPlusErrorToast() return end State.setLuckyBlockTeleport(enabled)
+State.setLuckyBlockTeleport(enabled)
 State.savePersistentOption("LuckyBlock Alert", enabled, "Enabled" ) refreshLuckyAlert()
 U.showToggleToast("LuckyBlock Alert", enabled) end) if not State.Performance.LowEnd then
 teleportButton.MouseEnter:Connect(function()
@@ -14299,8 +14081,7 @@ tp.Name = "TeleportSelectedBlock" tp.Size = UDim2.fromOffset(72, 24)
 tp.Position = UDim2.new(1, -78, 0.5, -12) tp.BackgroundColor3 = C.white
 tp.BorderSizePixel = 0 tp.Text = "TELEPORT" tp.TextColor3 = C.black
 tp.Font = Enum.Font.GothamBold tp.TextSize = 8 tp.AutoButtonColor = false tp.Parent = row
-corner(tp, 7) tp.Activated:Connect(function() if not State.Plus.Enabled then
-U.showPlusErrorToast() return end if not State.teleportToSelectedLuckyBlock(target) then
+corner(tp, 7) tp.Activated:Connect(function() if not State.teleportToSelectedLuckyBlock(target) then
 U.showToggleToast("LuckyBlock", false,
 "Bloco sumiu ou personagem indisponível.") refreshList(true) return end tp.Text = "OK!"
 task.delay(0.8, function() if tp.Parent then tp.Text = "TELEPORT" end end) end)
@@ -14392,8 +14173,7 @@ local ownedText = State.getRoVibesOwnedText("Candy")
 if ownedValue.Text ~= ownedText then ownedValue.Text = ownedText end
 if candyStatus.Text ~= status then candyStatus.Text = status end end
 action.Activated:Connect(function() local feature = State.Exploit.TeleportCandie
-if not feature.Enabled and not State.Plus.Enabled then
-U.showPlusErrorToast() return end State.setTeleportCandie(not feature.Enabled)
+State.setTeleportCandie(not feature.Enabled)
 refreshCandyCard() if playUiSound and ClickSound then
 playUiSound(ClickSound) end buttonTween(0.96, 0.08) fillTween(1, 0.10)
 task.delay(0.10, function() if action.Parent then
@@ -14437,8 +14217,7 @@ State.uiTween(potionFill, TweenInfo.new(0.18), {Size = UDim2.fromScale(0, 1)}) e
 if potionScale then
 State.uiTween(potionScale, TweenInfo.new(0.15), {Scale = 1}) end end) end
 potionButton.Activated:Connect(function() local potionFeature = State.Exploit.PotionFarm
-if not potionFeature.Enabled and not State.Plus.Enabled then
-U.showPlusErrorToast() return end State.setPotionFarm(not potionFeature.Enabled)
+State.setPotionFarm(not potionFeature.Enabled)
 if playUiSound and ClickSound then playUiSound(ClickSound) end if potionScale then
 State.uiTween(potionScale, TweenInfo.new(0.07), {Scale = 0.96})
 task.delay(0.09, function() if potionScale.Parent then
@@ -14736,8 +14515,7 @@ tagText = tostring(source.Text or "") if profile then
 local effect = State.tagStudioEffectId(profile.TagEffect)
 local info = State.TagStudio.EffectInfo[effect]
 tagText = (info and info.Fixed) or tostring(profile.Tag or tagText) end end
-]===================================],
-[===================================[local showTag = active and source ~= nil and tagText ~= nil and tagText ~= ""
+local showTag = active and source ~= nil and tagText ~= nil and tagText ~= ""
 row.Value.Visible = showTag == true if showTag then
 row.Value.Text = tagText row.Value.AutoLocalize = false
 local sourceGradient = source:FindFirstChild("UnicornHubTagGradient")
@@ -15402,8 +15180,7 @@ if not backgroundDriver and State.AutoItems and now - State.LastItems >= State.I
 State.LastItems = now handled = true local bought = buyBestGenerator() if not bought then
 State.LastItems = now + 0.65 end end
 if not handled and not backgroundDriver and State.AutoBuff and now - State.LastBuff >= State.BuffInterval then
-]===================================],
-[===================================[State.LastBuff = now handled = true buyAvailableUpgrade() end
+State.LastBuff = now handled = true buyAvailableUpgrade() end
 if not handled and not backgroundDriver and State.AutoWrinkler and now - State.LastWrinkler >= State.WrinklerInterval then
 State.LastWrinkler = now handled = true popWrinklers() end
 if not handled and not backgroundDriver and State.AutoGolden and now - State.LastGolden >= State.GoldenInterval then
@@ -16109,8 +15886,7 @@ distance = (head.Position - myRoot.Position).Magnitude,
 local textSpots = {} for _, entry in ipairs(entries) do
 if #textSpots >= MOBILE_ESP_MAX_LABELS then break end local conflict = false
 for _, spot in ipairs(textSpots) do
-]===================================],
-[===================================[if math.abs(entry.x - spot.x) < 112
+if math.abs(entry.x - spot.x) < 112
 and math.abs(entry.y - spot.y) < 40 then
 conflict = true break end end if not conflict then
 entry.data.mobileShowLabel = true
@@ -16798,8 +16574,7 @@ return end reloadCoinClickerCache() task.wait(OPEN_DELAY)
 if not State.Running or not CoinClickerAutoEnabled or myToken ~= respawnToken then
 return end
 if State.coinClickerNoNativeMenu() or State.CoinClickerSilentEnabled then return end
-]===================================],
-[===================================[openCoinClickerMenu(laptop) end) end
+openCoinClickerMenu(laptop) end) end
 State.HubRuntime.RespawnRemovingConnection = player.CharacterRemoving:Connect(function()
 respawnToken += 1 reloadCoinClickerCache() end)
 State.HubRuntime.RespawnCharacterConnection = player.CharacterAdded:Connect(function(character)
@@ -17463,7 +17238,8 @@ _G.__UnicornHubFromTeleportLoader = nil pcall(ServerBrowserCache.queueUnicornHub
 pcall(function()
 if ServerBrowserCache and ServerBrowserCache.queueUnicornHubAfterTeleport then
 ServerBrowserCache.queueUnicornHubAfterTeleport() end end) end __lieHubMainScope() end  
-]===================================]
+]====================]
+
 }
 local source = table.concat(pieces)
 for i = #pieces, 1, -1 do pieces[i] = nil end
