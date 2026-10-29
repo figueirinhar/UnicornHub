@@ -11646,7 +11646,7 @@ U.discord.ScaleType = Enum.ScaleType.Fit
 U.discord.Image = "rbxthumb://type=Asset&id=126084249376054&w=150&h=150"
 U.discord.ImageColor3 = State.getGraphicsTheme() == "Light UI (Branco)" and C.text or C.white
 U.discord.Parent = CreditWrap
-U.creditText = label(CreditWrap, "by 00018y", UDim2.new(1, -22, 1, 0), UDim2.fromOffset(22, 0),
+U.creditText = label(CreditWrap, "by fantacherrysemacucar", UDim2.new(1, -22, 1, 0), UDim2.fromOffset(22, 0),
 Enum.Font.GothamMedium, 8, C.text2) U.connectedDot = Instance.new("Frame")
 U.connectedDot.Size = UDim2.fromOffset(6, 6)
 U.connectedDot.Position = UDim2.new(0, 14, 1, -66)
